@@ -1,0 +1,25 @@
+description: "The CMake package contains a modern toolset used for generating Makefiles. It is a successor of the auto-generated configure script and aims to be platform- and compiler-independent. A significant user of CMake is KDE since version 4."
+
+package:
+  name: cmake
+  version: 4.3.2
+  rel: 1
+  archive: false
+  delete: true
+
+sources:
+  - url: https://cmake.org/files/v4.3/cmake-4.3.2.tar.gz
+    sha256:
+    md5: fdacfba9fc146a016e96cabefc3f1942
+
+prepare: |
+  sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake;
+  ./bootstrap --prefix=/usr --no-system-libs \
+      --mandir=/share/man --docdir=/share/doc/cmake-${PKGVER} \
+      -- -DCMAKE_USE_OPENSSL=OFF
+
+build: |
+  make
+
+install: |
+  make install

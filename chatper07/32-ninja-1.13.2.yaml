@@ -1,0 +1,33 @@
+description: "Ninja is a small build system with a focus on speed."
+
+package:
+  name: ninja
+  version: 1.13.2
+  rel: 1
+  archive: false
+  delete: true
+
+sources:
+  - url: https://github.com/ninja-build/ninja/archive/v1.13.2/ninja-1.13.2.tar.gz
+    sha256: 974d6b2f4eeefa25625d34da3cb36bdcebe7fbce40f4c16ac0835fd1c0cbae17
+    md5:
+
+prepare: |
+  ${YPKG}/ninja-jobs-patch.sh
+  cmake -B build -DBUILD_TESTING=OFF -DNINJA_BUILD_BINARY=ON
+
+build: |
+  cmake --build build
+
+install: |
+  install -vm755 build/ninja /usr/bin/
+
+final: |
+  install -vDm644 misc/bash-completion /usr/share/bash-completion/completions/ninja;
+  install -vDm644 misc/zsh-completion /usr/share/zsh/site-functions/_ninja
+
+required:
+  - binutils-pass2
+  - coreutils-temp
+  - gcc-pass2
+  - python-temp

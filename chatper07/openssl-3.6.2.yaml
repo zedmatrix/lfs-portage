@@ -1,0 +1,31 @@
+description: "The OpenSSL package contains management tools and libraries relating to cryptography."
+
+package:
+  name: openssl
+  version: 3.6.2
+  rel: 1
+  archive: false
+  delete: true
+
+sources:
+  - url: https://github.com/openssl/openssl/releases/download/openssl-3.6.2/openssl-3.6.2.tar.gz
+    sha256: aaf51a1fe064384f811daeaeb4ec4dce7340ec8bd893027eee676af31e83a04f
+    md5:
+
+prepare: |
+  ./config --prefix=/usr --openssldir=/etc/ssl --libdir=lib shared zlib-dynamic
+
+build: |
+  make
+
+install: |
+  make MANSUFFIX=ssl install &&
+  mv -v /usr/share/doc/openssl /usr/share/doc/openssl-${PKGVER} &&
+  cp -vfr doc/* /usr/share/doc/openssl-${PKGVER}
+
+required:
+  - binutils-pass2
+  - coreutils-temp
+  - gcc-pass2
+  - make-temp
+  - perl-temp
