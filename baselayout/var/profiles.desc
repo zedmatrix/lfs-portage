@@ -1,0 +1,9 @@
+#############################################
+# This is a list of valid profiles for each architecture.  This file is used by
+# pkgcheck when running pkgcheck scan.
+# DO NOT ADD PROFILES WITH A "die" or "exit" IN THEM OR IT KILLS PKGCHECK
+#
+#layout:
+#arch           profile_directory         status
+
+amd64           default/linux             stable

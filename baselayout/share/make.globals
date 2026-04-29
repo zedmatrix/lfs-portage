@@ -1,0 +1,90 @@
+# Begin /usr/share/portage/config/make.globals
+
+# When compiler flags are unset, many packages will substitute their own
+# implicit flags. For uniformity, use an empty string as the default.
+
+CFLAGS=""
+CXXFLAGS=""
+LDFLAGS=""
+FFLAGS=""
+FCFLAGS=""
+
+# Default distfiles mirrors. This rotation has multiple hosts and is reliable.
+# Approved by the mirror-admin team.
+GENTOO_MIRRORS=" "
+
+ACCEPT_PROPERTIES="*"
+ACCEPT_RESTRICT="*"
+
+# Miscellaneous paths
+PORTDIR="/var/db/repos/zirconium"
+# DISTDIR="/var/cache/distfiles"
+DISTDIR="/ybuild/sources"
+PKGDIR="/var/cache/binpkgs"
+RPMDIR="/var/cache/rpm"
+
+BINPKG_COMPRESS="zstd"
+BINPKG_FORMAT="xpak"
+# Temporary build directory
+PORTAGE_TMPDIR="/var/tmp"
+PORTAGE_WORKDIR_MODE="0700"
+PORTAGE_BZIP2_COMMAND="bzip2"
+PORTAGE_NICENESS="19"
+
+# Fetching command (3 tries, passive ftp for firewall compatibility)
+FETCHCOMMAND="wget -t 3 -T 60 --passive-ftp -O \"\${DISTDIR}/\${FILE}\" \"\${URI}\""
+RESUMECOMMAND="wget -c -t 3 -T 60 --passive-ftp -O \"\${DISTDIR}/\${FILE}\" \"\${URI}\""
+
+FETCHCOMMAND_RSYNC="rsync -LtvP \"\${URI}\" \"\${DISTDIR}/\${FILE}\""
+RESUMECOMMAND_RSYNC="rsync -LtvP \"\${URI}\" \"\${DISTDIR}/\${FILE}\""
+
+# This user and group will be used for dropping root privileges during GnuPG verification
+GPG_VERIFY_USER_DROP="nobody"
+GPG_VERIFY_GROUP_DROP="nogroup"
+
+# Default user options
+FEATURES="assume-digests binpkg-docompress binpkg-dostrip binpkg-logs
+          binpkg-multi-instance buildpkg-live
+          compress-index config-protect-if-modified distlocks ebuild-locks
+          fixlafiles ipc-sandbox merge-sync merge-wait multilib-strict
+          network-sandbox news parallel-fetch pkgdir-index-trusted pid-sandbox
+          preserve-libs protect-owned qa-unresolved-soname-deps sandbox strict
+          unknown-features-warn unmerge-logs unmerge-orphans userfetch
+          userpriv usersandbox usersync"
+
+
+COLLISION_IGNORE="/lib/modules/* *.py[co] *\$py.class"
+UNINSTALL_IGNORE="/lib/modules/*"
+
+# By default wait 5 secs before cleaning a package
+CLEAN_DELAY="5"
+
+# By default wait 10 secs on an important warning
+EMERGE_WARNING_DELAY="10"
+
+# Automatically clean installed packages after they are updated.
+# This option will be removed and forced to yes.
+AUTOCLEAN="no"
+
+PORTAGE_BZIP2_COMMAND="bzip2"
+
+# The program used to compress documentation during the install phase.
+PORTAGE_COMPRESS="bzip2"
+
+# Don't compress files with these suffixes.
+PORTAGE_COMPRESS_EXCLUDE_SUFFIXES="css gif htm[l]? jp[e]?g js pdf png"
+
+# Number of mirrors to try when a downloaded file has an incorrect checksum.
+PORTAGE_FETCH_CHECKSUM_TRY_MIRRORS="5"
+
+# Minimum size of existing file for RESUMECOMMAND to be called.
+PORTAGE_FETCH_RESUME_MIN_SIZE="350K"
+
+# Number of times 'emerge --sync' will run before giving up.
+PORTAGE_RSYNC_RETRIES="-1"
+
+# Minimal CONFIG_PROTECT
+CONFIG_PROTECT="/etc"
+CONFIG_PROTECT_MASK="/etc/env.d"
+
+# End /usr/share/portage/config/make.globals
