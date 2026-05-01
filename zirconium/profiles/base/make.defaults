@@ -1,0 +1,21 @@
+CONFIG_PROTECT="/etc"
+CONFIG_PROTECT_MASK="/etc/env.d /etc/gconf"
+
+# Default target(s) for python-r1.eclass
+# PYTHON_TARGETS="python3_14"
+# PYTHON_SINGLE_TARGET="python3_14"
+
+# Moved from portage's make.globals.
+# 1) do not uninstall kernel modules/dtbs and therefore allow replacing them,
+# 2,3) removed wrt bug #663170,
+# 4) protect /var/{run,lock} symlinks for bug 519620
+COLLISION_IGNORE="/boot/dtbs/* /lib/modules/*"
+UNINSTALL_IGNORE="/boot/dtbs/* /lib/modules/* /var/run /var/lock"
+
+# Make emerge messages default to English as per Council decision
+LC_MESSAGES="C"
+
+# Default targets for lua{,-single}.eclass
+# LUA_SINGLE_TARGET="lua5-1"
+# LUA_TARGETS="lua5-1"
+

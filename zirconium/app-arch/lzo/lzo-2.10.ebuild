@@ -1,29 +1,29 @@
 EAPI=8
 LICENSE=""
-
 # Short one-line description of this package.
-DESCRIPTION="A program for controlling the generation of executables and other non-source files of a package from source files. "
-
+DESCRIPTION="A data compression library which is suitable for data decompression and compression in real-time."
 # Homepage, not used by Portage directly but handy for developer reference
-HOMEPAGE="https://www.gnu.org/software/make/"
+HOMEPAGE="https://www.oberhumer.com/opensource/lzo"
 
-SRC_URI="https://mirror.csclub.uwaterloo.ca/gnu/make/make-${PV}.tar.gz"
+SRC_URI="https://www.oberhumer.com/opensource/lzo/download/lzo-${PV}.tar.gz"
 #S="${WORKDIR}/${P}"
 
 SLOT="0"
-
 KEYWORDS="amd64"
+IUSE=""
 
-IUSE="+nls"
 # Run-time dependencies. Must be defined to whatever this depends on to run.
 RDEPEND="sys-libs/glibc"
 # Build-time dependencies that need to be binary compatible with the system
-DEPEND=""
+DEPEND="${RDEPEND}"
 # Build-time dependencies that are executed during the emerge process
-BDEPEND="nls? ( sys-devel/gettext )"
+BDEPEND=""
 
 src_configure() {
-	econf --prefix=/usr
+	econf --prefix=/usr \
+	      --enable-shared \
+	      --disable-static \
+          --docdir=/usr/share/doc/lzo-${PV}
 }
 
 src_compile() {

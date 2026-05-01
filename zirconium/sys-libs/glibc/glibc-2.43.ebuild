@@ -15,6 +15,7 @@ RESTRICT="strip"
 IUSE=""
 
 RDEPEND="sys-libs/tzdata"
+PDEPEND="app-arch/zlib"
 DEPEND="${RDEPEND}"
 BDEPEND="
     >=sys-util/pax-utils-1.3.3
@@ -41,6 +42,7 @@ src_configure() {
         --enable-fortify-source \
         --disable-nscd \
         --disable-werror \
+        --with-pkgversion="Zirconium ${PV}"
         libc_cv_rootsbindir=/usr/sbin \
         libc_cv_slibdir=/usr/lib \
         || die "configure failed"

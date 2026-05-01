@@ -14,7 +14,11 @@ DEPEND="
 	>=sys-libs/ncurses-5.2
 	sys-libs/pcre2
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	sys-libs/glibc
+	dev-build/make
+"
 BDEPEND=" test? ( dev-util/pkgconfig ) "
 
 src_configure() {

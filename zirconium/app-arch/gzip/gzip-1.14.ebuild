@@ -11,7 +11,7 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="-test"
 
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 DEPEND="${RDEPEND}"
 BDEPEND=""
 

@@ -15,13 +15,16 @@ KEYWORDS="amd64"
 IUSE="-test"
 
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND="sys-apps/attr"
+RDEPEND="
+	sys-libs/glibc
+	sys-apps/attr
+"
 
 # Build-time dependencies that need to be binary compatible with the system
 DEPEND="${RDEPEND}"
 
 # Build-time dependencies that are executed during the emerge process
-BDEPEND=""
+BDEPEND="dev-build/make"
 
 src_configure() {
 	econf --prefix=/usr

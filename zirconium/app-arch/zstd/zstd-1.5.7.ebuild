@@ -17,7 +17,7 @@ IUSE=""
 #RESTRICT="strip"
 
 # Run-time dependencies.
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 
 DEPEND="${RDEPEND}"
 

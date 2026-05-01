@@ -15,13 +15,18 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE=""
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND=">=dev-libs/openssl-1.1.1"
+RDEPEND="
+	sys-libs/glibc
+	>=dev-libs/openssl-1.1.1
+"
 
 # Build-time dependencies that need to be binary compatible with the system
 DEPEND="${RDEPEND}"
 
 # Build-time dependencies that are executed during the emerge process
-BDEPEND=""
+BDEPEND="
+	dev-build/make
+"
 
 pkg_preinst() {
     # create sshd group if it doesn't exist

@@ -1,29 +1,32 @@
 EAPI=8
 LICENSE=""
-
 # Short one-line description of this package.
-DESCRIPTION="A program for controlling the generation of executables and other non-source files of a package from source files. "
-
+DESCRIPTION="A multi-platform support library with a focus on asynchronous I/O."
 # Homepage, not used by Portage directly but handy for developer reference
-HOMEPAGE="https://www.gnu.org/software/make/"
+HOMEPAGE="https://github.com/libuv/libuv"
 
-SRC_URI="https://mirror.csclub.uwaterloo.ca/gnu/make/make-${PV}.tar.gz"
-#S="${WORKDIR}/${P}"
+SRC_URI="https://dist.libuv.org/dist/v${PV}/libuv-v${PV}.tar.gz"
+S="${WORKDIR}/${PN}-v${PV}"
 
 SLOT="0"
-
 KEYWORDS="amd64"
-
-IUSE="+nls"
+IUSE=""
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND="sys-libs/glibc"
+RDEPEND=""
 # Build-time dependencies that need to be binary compatible with the system
-DEPEND=""
+DEPEND="
+	sys-libs/glibc
+	dev-build/autoconf
+"
 # Build-time dependencies that are executed during the emerge process
-BDEPEND="nls? ( sys-devel/gettext )"
+BDEPEND="
+	dev-build/libtool
+	dev-util/pkgconf
+"
 
 src_configure() {
-	econf --prefix=/usr
+	sh autogen.sh || die "autogen failure"
+	econf --prefix=/usr --disable-static
 }
 
 src_compile() {

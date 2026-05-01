@@ -10,6 +10,7 @@ KEYWORDS="amd64"
 PATCHES=(
     "${FILESDIR}/${P}-install_docs-1.patch"
 )
+RDEPEND="sys-libs/glibc"
 
 src_prepare() {
     default

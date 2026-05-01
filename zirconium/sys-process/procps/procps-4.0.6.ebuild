@@ -15,7 +15,7 @@ KEYWORDS="amd64"
 IUSE=""
 
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 
 # Build-time dependencies that need to be binary compatible with the system
 DEPEND="

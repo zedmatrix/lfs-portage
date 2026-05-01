@@ -17,7 +17,11 @@ KEYWORDS="amd64"
 IUSE=""
 
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND="sys-apps/acl"
+RDEPEND="
+	sys-libs/glibc
+	sys-apps/acl
+	dev-build/make
+"
 
 # Build-time dependencies that need to be binary compatible with the system
 DEPEND="${RDEPEND}

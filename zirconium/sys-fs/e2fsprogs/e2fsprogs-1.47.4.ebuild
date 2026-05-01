@@ -16,6 +16,7 @@ IUSE=""
 
 # Run-time dependencies. Must be defined to whatever this depends on to run.
 RDEPEND="
+	sys-libs/glibc
 	app-arch/libarchive
 	sys-fs/fuse
 	sys-fs/lvm2
@@ -28,7 +29,11 @@ DEPEND="${RDEPEND}
 "
 
 # Build-time dependencies that are executed during the emerge process
-BDEPEND=""
+BDEPEND="
+	dev-build/make
+	dev-build/autoconf
+	dev-build/automake
+"
 
 src_configure() {
 	export PKG_CONFIG_PATH=/usr/lib64/pkgconfig

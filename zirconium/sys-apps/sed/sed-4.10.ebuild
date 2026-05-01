@@ -11,7 +11,7 @@ KEYWORDS="amd64"
 IUSE="-test"
 
 # Run-time Dependencies.
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 
 # Dependencies
 DEPEND="${RDEPEND}"

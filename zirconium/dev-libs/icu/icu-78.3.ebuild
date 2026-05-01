@@ -1,26 +1,28 @@
 EAPI=8
 LICENSE=""
-
 # Short one-line description of this package.
-DESCRIPTION="A program for controlling the generation of executables and other non-source files of a package from source files. "
-
+DESCRIPTION="International Components for Unicode (ICU) package is a mature, widely used set of C/C++ libraries"
 # Homepage, not used by Portage directly but handy for developer reference
-HOMEPAGE="https://www.gnu.org/software/make/"
+HOMEPAGE="https://icu.unicode.org/"
 
-SRC_URI="https://mirror.csclub.uwaterloo.ca/gnu/make/make-${PV}.tar.gz"
-#S="${WORKDIR}/${P}"
+SRC_URI="https://github.com/unicode-org/icu/releases/download/release-${PV}/icu4c-${PV}-sources.tgz"
+S="${WORKDIR}"/${PN}/source
 
 SLOT="0"
-
 KEYWORDS="amd64"
-
-IUSE="+nls"
+IUSE=""
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND="sys-libs/glibc"
+RDEPEND=""
 # Build-time dependencies that need to be binary compatible with the system
-DEPEND=""
+DEPEND="${RDEPEND}"
 # Build-time dependencies that are executed during the emerge process
-BDEPEND="nls? ( sys-devel/gettext )"
+BDEPEND="
+	dev-build/autoconf
+	sys-libs/glibc
+	sys-devel/gcc
+	dev-lang/python
+	app-shells/bash
+"
 
 src_configure() {
 	econf --prefix=/usr

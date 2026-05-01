@@ -16,13 +16,15 @@ KEYWORDS="amd64"
 
 IUSE=""
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 
 # Build-time dependencies that need to be binary compatible with the system
 DEPEND="${RDEPEND}"
 
 # Build-time dependencies that are executed during the emerge process
 BDEPEND="
+	dev-build/ninja
+	dev-build/meson
 	dev-python/markupsafe
 	dev-python/jinja2
 	dev-python/pyelftools

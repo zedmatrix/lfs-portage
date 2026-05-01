@@ -10,7 +10,7 @@ KEYWORDS="amd64"
 IUSE="test"
 
 #RESTRICT="strip"
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	sys-devel/gettext

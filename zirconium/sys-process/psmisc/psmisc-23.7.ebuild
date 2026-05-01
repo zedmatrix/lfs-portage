@@ -1,19 +1,20 @@
 EAPI=8
-DESCRIPTION="The Grep package contains programs for searching through the contents of files."
-HOMEPAGE="https://www.gnu.org/software/grep/"
+DESCRIPTION="The Psmisc package contains programs for displaying information about running processes."
 
-SRC_URI="https://mirror.csclub.uwaterloo.ca/gnu/grep/grep-${PV}.tar.xz"
+HOMEPAGE="https://gitlab.com/psmisc/psmisc"
 
+SRC_URI="https://sourceforge.net/projects/psmisc/files/psmisc/psmisc-${PV}.tar.xz"
 #S="${WORKDIR}/${P}"
 LICENSE=""
 SLOT="0"
 KEYWORDS="amd64"
 IUSE="-test"
 
-# Run-time dependencies. Must be defined to whatever this depends on to run.
+# Run-time Dependencies.
 RDEPEND="sys-libs/glibc"
 
-# Build-time dependencies that need to be binary compatible with the system
+# Build-time Dependencies that need to be binary compatible with the system
+# being built (CHOST).
 DEPEND="${RDEPEND}"
 
 # Build-time dependencies that are executed during the emerge process, and
@@ -21,9 +22,6 @@ DEPEND="${RDEPEND}"
 BDEPEND=""
 
 src_configure() {
-	default
-	sed -i "s/echo/#echo/" src/egrep.sh
-
 	econf
 }
 
@@ -37,4 +35,8 @@ src_test() {
 
 src_install() {
 	emake DESTDIR="${D}" install
+}
+
+pkg_postinst() {
+    ldconfig
 }

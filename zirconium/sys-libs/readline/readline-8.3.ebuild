@@ -37,7 +37,7 @@ src_configure() {
 }
 
 src_compile() {
-    emake
+    emake SHLIB_LIBS="-lncursesw"
 }
 
 src_install() {

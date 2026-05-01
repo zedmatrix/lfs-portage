@@ -12,7 +12,7 @@ IUSE="-test"
 #RESTRICT="strip"
 #RESTRICT="!test? ( test )"
 
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/gettext"
 

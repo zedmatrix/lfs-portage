@@ -10,7 +10,7 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE=""
 
-RDEPEND=""
+RDEPEND="sys-libs/glibc"
 
 DEPEND="${RDEPEND}"
 
@@ -19,6 +19,8 @@ BDEPEND="
 	dev-libs/mpfr
 	dev-libs/mpc
 "
+PDEPEND="sys-apps/shadow"
+
 src_prepare() {
 	default
 	sed -i 's/char [*]q/const &/' libgomp/affinity-fmt.c
@@ -35,6 +37,7 @@ src_configure() {
                    --disable-multilib \
                    --disable-bootstrap \
                    --disable-fixincludes \
+                   --with-pkgversion="Zirconium ${PV}" \
                    --with-system-zlib || die "configure failed"
 }
 
