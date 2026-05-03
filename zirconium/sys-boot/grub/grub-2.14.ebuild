@@ -1,7 +1,7 @@
 EAPI=8
 LICENSE=""
 
-inherit shell-completion
+inherit shell-completion toolchain-funcs
 
 # Short one-line description of this package.
 DESCRIPTION="The GRUB package contains the GRand Unified Bootloader."
@@ -25,8 +25,7 @@ SLOT="0"
 
 KEYWORDS="amd64"
 
-GRUB_ALL_PLATFORMS=( coreboot efi-64 )
-IUSE="device-mapper fonts themes truetype mount nls ${GRUB_ALL_PLATFORMS[@]/#/grub_platforms_}"
+IUSE="device-mapper fonts themes truetype mount nls coreboot efi"
 
 # Build-time dependencies that need to be binary compatible with the system
 DEPEND="
@@ -48,7 +47,7 @@ BDEPEND="
 
 # Run-time dependencies. Must be defined to whatever this depends on to run.
 RDEPEND="${DEPEND}
-	grub_platforms_efi-64? ( sys-boot/efibootmgr )
+	efi? ( sys-boot/efibootmgr )
 	nls? ( sys-devel/gettext )
 "
 
@@ -60,6 +59,9 @@ src_prepare() {
 	default
     if use fonts; then
         gunzip -c "${DISTDIR}/${UNIFONT}.pcf.gz" > ${S}/unifont.pcf || die "no unifont.pcf"
+    fi
+    if use themes; then
+		cp "${WORKDIR}/${DEJAVU}/ttf/DejaVuSans.ttf" ${S}/DejaVuSans.ttf
     fi
 }
 
@@ -77,13 +79,14 @@ src_configure() {
         --sysconfdir=/etc
         --disable-efiemu
         --disable-werror
+        $(use_enable themes grub-themes)
     )
     # build EFI version
-    if use grub_platforms_efi-64; then
+    if use efi; then
         "${S}/configure" "${econfargs[@]}" \
             --with-platform=efi \
             --target=x86_64 || die "configure efi failure"
-    elif use grub_platforms_coreboot; then
+    elif use coreboot; then
 		# build BIOS/coreboot version
 	    "${S}/configure" "${econfargs[@]}" || die "configure bios failure"
 	else
@@ -110,7 +113,7 @@ src_install() {
 }
 
 pkg_postinst() {
-    if use grub_platforms_efi-64; then
+    if use efi; then
         elog "To install GRUB for EFI systems:"
         elog "  grub-install --target=x86_64-efi --efi-directory=/boot/efi"
     else

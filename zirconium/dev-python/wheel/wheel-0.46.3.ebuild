@@ -22,7 +22,10 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 # Build-time dependencies that are executed during the emerge process, and
-BDEPEND="dev-lang/python"
+BDEPEND="
+    dev-lang/python
+    dev-python/flit-core
+"
 
 src_configure() { :; }
 

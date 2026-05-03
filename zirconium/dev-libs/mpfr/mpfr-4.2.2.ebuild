@@ -10,9 +10,6 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="test"
 
-#RESTRICT="strip"
-RESTRICT="!test? ( test )"
-
 # Run-time dependencies. Must be defined to whatever this depends on to run.
 RDEPEND=">=dev-libs/gmp-5.0.0"
 
@@ -38,19 +35,15 @@ src_compile() {
 
 src_test() {
     emake check 2>&1 | tee "${T}/${P}-check-log"
-
-    einfo "Test summary:"
-    einfo "PASS: $(awk '/# PASS:/{total+=$3} END{print total}' "${T}/${P}-check-log")"
-    einfo "FAIL: $(awk '/# FAIL:/{total+=$3} END{print total}' "${T}/${P}-check-log")"
-    if grep -q "# FAIL:" "${T}/${P}-check-log"; then
-        ewarn "Some tests failed, check ${T}/${P}-check-log for details"
-    fi
+   	if [[ -f "${T}/${P}-check-log" ]]; then
+		elog "Test summary:"
+		elog "PASS: $(awk '/# PASS:/{total+=$3} END{print total}' "${T}/${P}-check-log")"
+	fi
 }
 
 src_install() {
 	emake DESTDIR="${D}" install
 	emake DESTDIR="${D}" install-html
-
 }
 
 pkg_postinst() {

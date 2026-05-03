@@ -9,9 +9,6 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="test"
 
-#RESTRICT="strip"
-RESTRICT="!test? ( test )"
-
 # Run-time dependencies. Must be defined to whatever this depends on to run.
 RDEPEND=""
 
@@ -27,12 +24,8 @@ BDEPEND="
 	test? ( dev-lang/dejagnu )
 "
 
-src_prepare() {
-	default
-	sed -i '/long long t1;/,+1s/()/(...)/' configure
-}
-
 src_configure() {
+	sed -i '/long long t1;/,+1s/()/(...)/' configure
 	econf --prefix=/usr \
 	      --enable-cxx \
 	      --disable-static \
@@ -46,14 +39,6 @@ src_compile() {
 
 src_test() {
     emake check 2>&1 | tee "${T}/check-log"
-    elog "Test summary:"
-    grep "PASS\|FAIL" "${T}/check-log" | tail -5 | while read line; do
-        elog "  ${line}"
-    done
-    if grep -q "FAIL" "${T}/check-log"; then
-        ewarn "Some tests failed, check ${T}/check-log"
-        # or die if you want hard failure
-    fi
 }
 
 src_install() {
@@ -62,5 +47,10 @@ src_install() {
 }
 
 pkg_postinst() {
+	if [[ -f "${T}/${P}-check-log" ]]; then
+		einfo "Test summary:"
+		einfo "PASS: $(awk '/# PASS:/{total+=$3} END{print total}' "${T}/${P}-check-log")"
+	fi
+
     ldconfig
 }

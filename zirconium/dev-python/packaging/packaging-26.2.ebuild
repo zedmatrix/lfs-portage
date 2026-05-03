@@ -1,8 +1,8 @@
 EAPI=8
 
-DESCRIPTION="a Python library that is the reference implementation of the Python wheel packaging standard."
+DESCRIPTION="This includes utilities for version handling, specifiers, markers, tags, and requirements."
 
-HOMEPAGE="https://pypi.org/project/setuptools/"
+HOMEPAGE="https://pypi.org/project/packaging/"
 
 LICENSE=""
 
@@ -24,24 +24,22 @@ DEPEND="${RDEPEND}"
 # Build-time dependencies that are executed during the emerge process, and
 BDEPEND="
     dev-lang/python
-    dev-python/packaging
-    dev-python/wheel
+    dev-python/flit-core
 "
 
 src_configure() { :; }
 
 src_compile() {
-	HOME="${T}" pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
+	pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
 }
 
 src_install() {
-	HOME="${T}" pip3 install \
+	pip3 install \
         --no-index \
         --no-user \
-        --no-deps \
-        --ignore-installed \
         --find-links dist \
         --root "${D}" \
         --prefix=/usr \
-        setuptools || die
+        --ignore-installed \
+        packaging || die
 }

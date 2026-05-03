@@ -26,7 +26,7 @@ RDEPEND="
 
 # Build-time dependencies that are executed during the emerge process
 BDEPEND="
-	>=sys-libs/binutils-2.37
+	>=sys-devel/binutils-2.37
 "
 
 src_configure() { :; }

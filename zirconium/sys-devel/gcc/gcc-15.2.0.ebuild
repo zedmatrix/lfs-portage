@@ -37,7 +37,7 @@ src_configure() {
                    --disable-multilib \
                    --disable-bootstrap \
                    --disable-fixincludes \
-                   --with-pkgversion="Zirconium ${PV}" \
+                   --with-pkgversion="Andromeda ${PV}" \
                    --with-system-zlib || die "configure failed"
 }
 

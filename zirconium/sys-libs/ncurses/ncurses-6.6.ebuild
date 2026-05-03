@@ -9,12 +9,11 @@ SRC_URI="https://mirror.csclub.uwaterloo.ca/gnu/ncurses/ncurses-${PV}.tar.gz"
 LICENSE=""
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="gnome X"
-#RESTRICT="strip"
+IUSE=""
+
 RDEPEND=""
 DEPEND="${RDEPEND}
     sys-libs/glibc
-
 "
 BDEPEND=""
 

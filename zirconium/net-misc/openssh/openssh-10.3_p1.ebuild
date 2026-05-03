@@ -18,6 +18,7 @@ IUSE=""
 RDEPEND="
 	sys-libs/glibc
 	>=dev-libs/openssl-1.1.1
+	sys-apps/shadow
 "
 
 # Build-time dependencies that need to be binary compatible with the system

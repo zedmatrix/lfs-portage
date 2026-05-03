@@ -1,17 +1,10 @@
-# OK, you're staring at this file and you have no idea what these stars are
-# for.  Here's the scoop.  An initial "*" marks a package that is part of
-# the official BASE system profile.  If there is a "*" then `emerge system`
-# will use the line in its calculations of what should be installed for the
-# base profile.  Lines without a "*" prefix will be ignored for profile
-# system calculations.
-
 *app-arch/bzip2
 *app-arch/gzip
 *app-arch/tar
 *app-arch/xz
-*app-arch/zlib
 *app-shells/bash
 *dev-build/make
+
 *net-misc/wget
 *sys-apps/coreutils
 *sys-apps/diffutils
@@ -32,10 +25,8 @@
 *dev-build/gnuconfig
 *>=sys-devel/patch-2.7
 *sys-fs/e2fsprogs
-*sys-apps/nano
+*sys-app/nano
 *sys-libs/glibc
 *sys-apps/less
-*net-misc/openssh
 *sys-apps/systemd
-*sys-apps/portage
-sys-boot/grub
+*net-misc/openssh

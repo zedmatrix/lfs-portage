@@ -1,0 +1,7 @@
+NAME="Zirconium Linux From Scratch"
+VERSION="r3.0-systemd-wip"
+ID=zlfs
+PRETTY_NAME="Zirconium Linux From Scratch r3.0-systemd-wip"
+VERSION_CODENAME="lfs-portage"
+HOME_URL="https://github.com/zedmatrix/lfs-portage/"
+RELEASE_TYPE="development"

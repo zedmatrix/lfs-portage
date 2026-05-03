@@ -8,7 +8,7 @@ SRC_URI="https://mirror.csclub.uwaterloo.ca/gnu/automake/automake-${PV}.tar.xz"
 LICENSE=""
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="-test"
+IUSE="test"
 
 RDEPEND="
 	>=dev-lang/perl-5.10

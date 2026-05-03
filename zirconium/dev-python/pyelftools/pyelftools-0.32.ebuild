@@ -22,9 +22,7 @@ IUSE=""
 #RESTRICT="strip"
 
 RDEPEND=""
-
-DEPEND="${RDEPEND}"
-
+DEPEND=""
 BDEPEND=""
 
 src_compile() {

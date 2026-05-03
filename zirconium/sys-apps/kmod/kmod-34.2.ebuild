@@ -12,7 +12,7 @@ SRC_URI="https://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-${PV}.tar.xz"
 #S="${WORKDIR}/${P}"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="-test"
+IUSE=""
 
 # Run-time dependencies. Must be defined to whatever this depends on to run.
 RDEPEND="

@@ -16,7 +16,11 @@ RDEPEND=""
 # Build-time dependencies that need to be binary compatible with the system
 DEPEND=""
 # Build-time dependencies that are executed during the emerge process
-BDEPEND=""
+BDEPEND="
+    dev-util/pkgconf
+    dev-build/meson
+    dev-build/ninja
+"
 
 src_configure() {
 	sed -i '/^udev/,$ s/^/#/' util/meson.build

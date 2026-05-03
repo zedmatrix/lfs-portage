@@ -7,11 +7,8 @@ HOMEPAGE=" "
 SRC_URI="https://github.com/lz4/lz4/releases/download/v${PV}/lz4-${PV}.tar.gz"
 
 LICENSE=""
-
 SLOT="0"
-
 KEYWORDS="amd64"
-
 IUSE=""
 
 #RESTRICT="strip"

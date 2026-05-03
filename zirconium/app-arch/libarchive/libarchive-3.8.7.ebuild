@@ -21,7 +21,7 @@ RDEPEND="
 	app-arch/lz4
 	app-arch/xz
 	app-arch/zstd
-	lzo? ( dev-libs/lzo )
+	lzo? ( app-arch/lzo )
 	nettle? ( dev-libs/nettle )
 "
 # Build-time dependencies that need to be binary compatible with the system

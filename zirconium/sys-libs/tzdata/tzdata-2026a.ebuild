@@ -10,9 +10,7 @@ KEYWORDS="amd64"
 
 S="${WORKDIR}"
 RDEPEND=""
-DEPEND="${RDEPEND}
-    sys-libs/glibc
-"
+DEPEND=""
 
 src_configure() { :; }
 src_compile() { :; }

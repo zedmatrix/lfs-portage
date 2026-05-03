@@ -12,21 +12,17 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="nls"
 # Run-time dependencies. Must be defined to whatever this depends on to run.
-RDEPEND=""
-# Build-time dependencies that need to be binary compatible with the system
-DEPEND="${RDEPEND}
+RDEPEND="
 	net-misc/libidn2
 	net-misc/libpsl
 	sys-libs/pcre2
 	dev-libs/openssl
-	sys-apps/util-linux
 	app-arch/zlib
 "
+# Build-time dependencies that need to be binary compatible with the system
+DEPEND="${RDEPEND}"
 # Build-time dependencies that are executed during the emerge process
 BDEPEND="
-	app-arch/xz
-	dev-lang/perl
-	sys-apps/texinfo
 	dev-util/pkgconf
 	nls? ( sys-devel/gettext )
 "

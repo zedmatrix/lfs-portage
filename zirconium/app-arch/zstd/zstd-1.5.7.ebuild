@@ -9,12 +9,8 @@ SRC_URI="https://github.com/facebook/zstd/releases/download/v${PV}/zstd-${PV}.ta
 LICENSE=""
 
 SLOT="0"
-
 KEYWORDS="amd64"
-
 IUSE=""
-
-#RESTRICT="strip"
 
 # Run-time dependencies.
 RDEPEND="sys-libs/glibc"
@@ -24,7 +20,7 @@ DEPEND="${RDEPEND}"
 BDEPEND=""
 
 src_compile() {
-	emake prefix=/usr || die
+    emake prefix=/usr || die
 }
 
 src_install() {

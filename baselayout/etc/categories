@@ -15,6 +15,7 @@ sys-apps
 sys-boot
 sys-devel
 sys-fs
+sys-kernel
 sys-libs
 sys-process
 sys-util

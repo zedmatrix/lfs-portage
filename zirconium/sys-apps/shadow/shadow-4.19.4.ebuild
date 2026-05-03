@@ -21,6 +21,7 @@ DEPEND="
 BDEPEND="
 	app-arch/xz
 	sys-devel/gettext
+	sys-libs/libxcrypt
 "
 
 src_prepare() {

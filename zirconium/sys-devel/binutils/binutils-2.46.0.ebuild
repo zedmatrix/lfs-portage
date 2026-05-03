@@ -32,7 +32,7 @@ src_configure() {
           --enable-64-bit-bfd \
           --enable-new-dtags \
           --with-system-zlib \
-          --with-pkgversion="Zirconium ${PV}" \
+          --with-pkgversion="Andromeda ${PV}" \
           --enable-default-hash-style=gnu
 }
 

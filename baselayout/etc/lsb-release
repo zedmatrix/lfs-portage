@@ -1,0 +1,4 @@
+DISTRIB_ID="Zirconium Linux From Scratch"
+DISTRIB_RELEASE="r3.0-systemd-wip"
+DISTRIB_CODENAME="lfs-portage"
+DISTRIB_DESCRIPTION="Zirconium Linux From Scratch"

@@ -15,11 +15,10 @@ RESTRICT="strip"
 IUSE=""
 
 RDEPEND="sys-libs/tzdata"
-PDEPEND="app-arch/zlib"
+PDEPEND=""
 DEPEND="${RDEPEND}"
-BDEPEND="
-    >=sys-util/pax-utils-1.3.3
-"
+BDEPEND=""
+
 PATCHES=(
 	"${FILESDIR}/${PN}-fhs-1.patch"
 	"${FILESDIR}/${PN}-macro-guard.patch"
@@ -42,7 +41,7 @@ src_configure() {
         --enable-fortify-source \
         --disable-nscd \
         --disable-werror \
-        --with-pkgversion="Zirconium ${PV}"
+        --with-pkgversion="Andromeda ${PV}" \
         libc_cv_rootsbindir=/usr/sbin \
         libc_cv_slibdir=/usr/lib \
         || die "configure failed"
