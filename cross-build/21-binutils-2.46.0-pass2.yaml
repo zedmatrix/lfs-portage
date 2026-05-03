@@ -24,7 +24,8 @@ prepare: |
                --enable-gprofng=no \
                --enable-64-bit-bfd \
                --enable-new-dtags \
-               --enable-default-hash-style=gnu
+               --enable-default-hash-style=gnu \
+               --with-pkgversion="Andromeda ${PKGVER}"
 
 build: |
   cd build && make

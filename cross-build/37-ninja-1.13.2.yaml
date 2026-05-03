@@ -31,3 +31,4 @@ required:
   - coreutils-temp
   - gcc-pass2
   - python-temp
+  - cmake

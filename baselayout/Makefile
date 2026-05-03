@@ -5,7 +5,7 @@ RELEASE ?= "zirconium"
 EAPI ?= 8
 REPO = /var/db/repos/$(RELEASE)
 
-all: install-dirs install-files
+all: install-dirs install-files install-etc
 
 install-dirs:
 	install -m ${DIRMODE} -d /etc/profile.d
@@ -16,6 +16,7 @@ install-dirs:
 	install -m $(DIRMODE) -d /var/cache/packages
 	install -m $(DIRMODE) -d $(REPO)/metadata
 	install -m $(DIRMODE) -d $(REPO)/profiles
+	install -m $(DIRMODE) -d $(REPO)/profiles/base
 	install -m $(DIRMODE) -d $(REPO)/profiles/default/linux
 
 install-files:
@@ -45,4 +46,4 @@ install-etc:
 	install -m $(CONFMODE) etc/shells         /etc/shells
 	install -m $(CONFMODE) etc/vconsole.conf  /etc/vconsole.conf
 
-.PHONY: all install-dirs install-files
+.PHONY: all install-dirs install-files install-etc

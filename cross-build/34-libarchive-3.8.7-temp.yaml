@@ -1,0 +1,29 @@
+description: "The libarchive library provides a single interface for reading/writing various compression formats."
+
+package:
+  name: libarchive-temp
+  version: 3.8.7
+  rel: 1
+  archive: false
+  delete: true
+
+sources: 
+  - url: https://github.com/libarchive/libarchive/releases/download/v3.8.7/libarchive-3.8.7.tar.xz
+    sha256: d3a8ba457ae25c27c84fd2830a2efdcc5b1d40bf585d4eb0d35f47e99e5d4774
+    md5:
+
+prepare: |
+  ./configure --prefix=/usr --without-xml2
+
+build: |
+  make
+
+install: |
+  make DESTDIR=$LFS install
+
+final: |
+  rm -v $LFS/usr/lib/libarchive.{a,la}
+  ln -sv bsdcpio    $LFS/bin/cpio
+  ln -sv bsdunzip   $LFS/bin/unzip
+  ln -sv bsdcpio.1  $LFS/usr/share/man/man1/cpio.1
+  ln -sv bsdunzip.1 $LFS/usr/share/man/man1/unzip.1

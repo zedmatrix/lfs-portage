@@ -1,0 +1,28 @@
+description: "Portage is a package management system based on ports collections."
+
+package:
+  name: portage
+  version: 3.0.77
+  rel: 1
+  archive: false
+  delete: true
+
+sources:
+  - url: https://github.com/gentoo/portage/archive/refs/tags/portage-3.0.77.tar.gz
+    sha256: cf3fdb81dfc0522689c29180a7a78649e4b86a62bd5513ae291ab9f4bd07d059
+    md5:
+
+prepare: |
+  meson setup build --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+    -Dcode-only=true -Dportage-bindir="/usr/lib/portage/python3.14" \
+    -Ddocdir="/usr/share/doc/portage-${PKGVER}"
+
+build: |
+  ninja -C build
+
+install: |
+  ninja -C build install
+
+required:
+  - meson-temp
+  - ninja

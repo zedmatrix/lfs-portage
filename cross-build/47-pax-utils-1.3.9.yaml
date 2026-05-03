@@ -1,0 +1,27 @@
+description: "ELF related utils for ELF 32/64 binaries"
+
+package:
+  name: pax-utils
+  version: 1.3.9
+  rel: 1
+  archive: false
+  delete: true
+
+sources:
+  - url: https://dev.gentoo.org/~sam/distfiles/app-misc/pax-utils/pax-utils-1.3.9.tar.xz
+    sha256: 7409f246b3c59b3e2d459d2232a6f7374469637ae6cf616c115b8d5830cab840
+    md5:
+
+prepare: |
+  meson setup build --prefix=/usr -Dlddtree_implementation=sh \
+    -Dtests=false -Duse_fuzzing=false
+
+build: |
+  ninja -C build
+
+install: |
+  ninja -C build install
+
+required:
+  - meson-temp
+  - ninja

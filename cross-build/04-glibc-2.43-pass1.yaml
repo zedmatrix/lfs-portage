@@ -39,7 +39,8 @@ build: |
                --build=$(../scripts/config.guess) \
                --enable-kernel=5.4 \
                --host=$LFS_TGT \
-               --disable-nscd &&
+               --disable-nscd \
+               --with-pkgversion="Andromeda ${PKGVER}" &&
   make
 
 install: |
