@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      4.20.&nbsp;Wheel-0.46.3
+      5.1.&nbsp;Base-Layout-1.0
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
@@ -18,28 +18,26 @@
         Portage Linux From Scratch - Version 1.0
       </h4>
       <h3>
-        Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional
-        Temporary Tools
+        Chapter&nbsp;5.&nbsp;Configuring Portage
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="packaging.html" title=
-          "Packaging-26.2">Prev</a>
+          <a accesskey="p" href="chapter05.html" title=
+          "Configuring Portage">Prev</a>
           <p>
-            Packaging-26.2
+            Configuring Portage
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="setuptools.html" title=
-          "Setuptools-82.0.1">Next</a>
+          <a accesskey="n" href="zlfs-scripts.html" title=
+          "Zlfs-scripts-1.0">Next</a>
           <p>
-            Setuptools-82.0.1
+            Zlfs-scripts-1.0
           </p>
         </li>
         <li class="up">
-          <a accesskey="u" href="chapter04.html" title=
-          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
-          Up</a>
+          <a accesskey="u" href="chapter05.html" title=
+          "Chapter&nbsp;5.&nbsp;Configuring Portage">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
@@ -48,13 +46,13 @@
       </ul>
     </div>
     <h1 class="sect1">
-      <a id="ch-tools-wheel" name="ch-tools-wheel"></a>4.20. Wheel-0.46.3
+      <a id="base-layout" name="base-layout"></a>5.1. Base-Layout-1.0
     </h1>
     <div class="sect1" lang="en" xml:lang="en">
       <div class="package" lang="en" xml:lang="en">
         <p>
-          Wheel is a Python library that is the reference implementation of
-          the Python wheel packaging standard.
+          Custom made Makefile to Install the various Portage files and
+          directories.
         </p>
         <h3>
           Package Information
@@ -64,78 +62,60 @@
             <li class="listitem">
               <p>
                 Download HTTP: <a class="ulink" href=
-                "https://pypi.org/packages/source/w/wheel/wheel-0.46.3.tar.gz">
-                https://pypi.org/packages/source/w/wheel/wheel-0.46.3.tar.gz</a>
+                "https://trak4.com/musl-from-scratch/musl-packages/baselayout-1.0.tar.xz">
+                https://trak4.com/musl-from-scratch/musl-packages/baselayout-1.0.tar.xz</a>
               </p>
             </li>
             <li class="listitem">
               <p>
                 Download SHA256 Sum:
-                e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803
+                86798a82977b02e60882ac1c045937df43b81b5e8a39e1d332a1ee3c351baf2c
               </p>
             </li>
             <li class="listitem">
               <p>
-                Download Size: 59 KB
+                Download Size: 116 KB
               </p>
             </li>
             <li class="listitem">
               <p>
-                Estimated Disk Space: 218.1K
+                Estimated Disk Space: 680 KB
               </p>
             </li>
             <li class="listitem">
               <p>
-                Estimated Build Time: less than 0.5 SBU
+                Estimated Build Time: less than 0.1 SBU
               </p>
             </li>
           </ul>
         </div>
-        <h3>
-          Wheel Dependencies
-        </h3>
-        <h4>
-          Required
-        </h4>
-        <p>
-          Packaging-26.2, Flit-core-3.12.0 and Python-3.14.4
-        </p>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          4.20.1. Installation of Wheel
+          5.1.1. Installation of base-layout
         </h2>
         <p>
-          Prepare Wheel for compilation:
+          To Install base-layout, issue:
         </p>
-        <p>
-          To Compile the Package, issue:
-        </p>
-        <pre class="userinput"><kbd class=
-        "command">pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD</kbd></pre>
-        <p>
-          Now Install the Package, issue:
-        </p>
-        <pre class="userinput"><kbd class=
-        "command">pip3 install --no-index --find-links dist wheel</kbd></pre>
+        <pre class="userinput"><kbd class="command">make all</kbd></pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          4.20.2. Contents of Wheel
+          5.1.2. Contents of Base-Layout
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">PROGRAMS</span>
+              <span class="segbody">None</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">LIBRARIES</span>
+              <span class="segbody">None</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">DIRECTORIES</span>
+              <span class="segbody">Various Portage Layout Folders</span>
             </div>
           </div>
         </div>
@@ -144,23 +124,22 @@
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="packaging.html" title=
-          "Packaging-26.2">Prev</a>
+          <a accesskey="p" href="chapter05.html" title=
+          "Configuring Portage">Prev</a>
           <p>
-            Packaging-26.2
+            Configuring Portage
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="setuptools.html" title=
-          "Setuptools-82.0.1">Next</a>
+          <a accesskey="n" href="zlfs-scripts.html" title=
+          "Zlfs-scripts-1.0">Next</a>
           <p>
-            Setuptools-82.0.1
+            Zlfs-scripts-1.0
           </p>
         </li>
         <li class="up">
-          <a accesskey="u" href="chapter04.html" title=
-          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
-          Up</a>
+          <a accesskey="u" href="chapter05.html" title=
+          "Chapter&nbsp;5.&nbsp;Configuring Portage">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=

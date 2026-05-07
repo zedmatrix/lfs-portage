@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      4.20.&nbsp;Wheel-0.46.3
+      4.15.&nbsp;Expat-2.8.0
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
@@ -23,17 +23,16 @@
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="packaging.html" title=
-          "Packaging-26.2">Prev</a>
+          <a accesskey="p" href="libarchive.html" title=
+          "Libarchive-3.8.7">Prev</a>
           <p>
-            Packaging-26.2
+            Libarchive-3.8.7
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="setuptools.html" title=
-          "Setuptools-82.0.1">Next</a>
+          <a accesskey="n" href="cmake.html" title="Cmake-4.3.2">Next</a>
           <p>
-            Setuptools-82.0.1
+            Cmake-4.3.2
           </p>
         </li>
         <li class="up">
@@ -48,13 +47,13 @@
       </ul>
     </div>
     <h1 class="sect1">
-      <a id="ch-tools-wheel" name="ch-tools-wheel"></a>4.20. Wheel-0.46.3
+      <a id="expat" name="expat"></a>4.15. Expat-2.8.0
     </h1>
     <div class="sect1" lang="en" xml:lang="en">
       <div class="package" lang="en" xml:lang="en">
         <p>
-          Wheel is a Python library that is the reference implementation of
-          the Python wheel packaging standard.
+          The Expat package contains a stream oriented C library for parsing
+          XML.
         </p>
         <h3>
           Package Information
@@ -64,24 +63,24 @@
             <li class="listitem">
               <p>
                 Download HTTP: <a class="ulink" href=
-                "https://pypi.org/packages/source/w/wheel/wheel-0.46.3.tar.gz">
-                https://pypi.org/packages/source/w/wheel/wheel-0.46.3.tar.gz</a>
+                "https://github.com/libexpat/libexpat/releases/download/R_2_8_0/expat-2.8.0.tar.xz">
+                https://github.com/libexpat/libexpat/releases/download/R_2_8_0/expat-2.8.0.tar.xz</a>
               </p>
             </li>
             <li class="listitem">
               <p>
                 Download SHA256 Sum:
-                e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803
+                a37bfae0aa9775bd8521ebd85dc456d486f0ff31138f6c91fd902ea732624542
               </p>
             </li>
             <li class="listitem">
               <p>
-                Download Size: 59 KB
+                Download Size: 499 KB
               </p>
             </li>
             <li class="listitem">
               <p>
-                Estimated Disk Space: 218.1K
+                Estimated Disk Space: 7.5M
               </p>
             </li>
             <li class="listitem">
@@ -91,37 +90,38 @@
             </li>
           </ul>
         </div>
-        <h3>
-          Wheel Dependencies
-        </h3>
-        <h4>
-          Required
-        </h4>
-        <p>
-          Packaging-26.2, Flit-core-3.12.0 and Python-3.14.4
-        </p>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          4.20.1. Installation of Wheel
+          4.15.1. Installation of Expat
         </h2>
         <p>
-          Prepare Wheel for compilation:
+          Prepare Expat for compilation:
         </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr \
+            --disable-static \
+            --docdir=/usr/share/doc/expat-2.8.0</kbd></pre>
         <p>
           To Compile the Package, issue:
         </p>
-        <pre class="userinput"><kbd class=
-        "command">pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD</kbd></pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
+        <p>
+          To Test the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make check</kbd></pre>
         <p>
           Now Install the Package, issue:
         </p>
-        <pre class="userinput"><kbd class=
-        "command">pip3 install --no-index --find-links dist wheel</kbd></pre>
+        <pre class="userinput"><kbd class="command">make install
+install -v -m644 doc/*.{html,css} /usr/share/doc/expat-2.8.0</kbd></pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          4.20.2. Contents of Wheel
+          4.15.2. Contents of Expat
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -144,17 +144,16 @@
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="packaging.html" title=
-          "Packaging-26.2">Prev</a>
+          <a accesskey="p" href="libarchive.html" title=
+          "Libarchive-3.8.7">Prev</a>
           <p>
-            Packaging-26.2
+            Libarchive-3.8.7
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="setuptools.html" title=
-          "Setuptools-82.0.1">Next</a>
+          <a accesskey="n" href="cmake.html" title="Cmake-4.3.2">Next</a>
           <p>
-            Setuptools-82.0.1
+            Cmake-4.3.2
           </p>
         </li>
         <li class="up">
