@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.3.&nbsp;Linux-headers-7.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-lfs-portage">
+    <div class="navheader">
+      <h4>
+        Portage Linux From Scratch - Version 1.0-lfs-portage
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling a Cross-Toolchain
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc-pass1.html" title=
+          "GCC Pass1-15.2.0">Prev</a>
+          <p>
+            GCC Pass1-15.2.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="glibc.html" title="Glibc 2.43">Next</a>
+          <p>
+            Glibc 2.43
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling a Cross-Toolchain">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="ch-tools-linux-headers" name="ch-tools-linux-headers"></a>2.3.
+      Linux-headers-7.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          The Linux API Headers (in linux-7.0.tar.xz) expose the kernels API
+          for use by libc
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.0.tar.xz">
+                https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                bb7f6d80b387c757b7d14bb93028fcb90f793c5c0d367736ee815a100b3891f0
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 153,461 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 1.5G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: less than 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Linux-headers Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          Binutils-2.46.0-pass1 GCC-15.2.0-pass1
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.3.1. Installation of Linux-headers
+        </h2>
+        <p>
+          Prepare Linux-headers for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make mrproper</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make headers</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">find usr/include -type f ! -name '*.h' -delete
+
+cp -rv usr/include $LFS/usr</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.3.2. Contents of Linux-headers
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">PROGRAMS</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">LIBRARIES</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">DIRECTORIES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc-pass1.html" title=
+          "GCC Pass1-15.2.0">Prev</a>
+          <p>
+            GCC Pass1-15.2.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="glibc.html" title="Glibc 2.43">Next</a>
+          <p>
+            Glibc 2.43
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling a Cross-Toolchain">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

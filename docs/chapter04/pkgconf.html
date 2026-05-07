@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      4.23.&nbsp;Pkgconf-2.5.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-lfs-portage">
+    <div class="navheader">
+      <h4>
+        Portage Linux From Scratch - Version 1.0-lfs-portage
+      </h4>
+      <h3>
+        Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional
+        Temporary Tools
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="wget.html" title="Wget-1.25.0">Prev</a>
+          <p>
+            Wget-1.25.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cleanup.html" title=
+          "Cleaning up and Saving the Temporary System">Next</a>
+          <p>
+            Cleaning up and Saving the Temporary System
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="ch-tools-pkgconf" name="ch-tools-pkgconf"></a>4.23.
+      Pkgconf-2.5.1
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          The pkgconf package is a successor to pkg-config and contains a
+          tool for passing the include path and/or library paths to build
+          tools.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://distfiles.ariadne.space/pkgconf/pkgconf-2.5.1.tar.xz">
+                https://distfiles.ariadne.space/pkgconf/pkgconf-2.5.1.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 320 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 3.6M
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: less than 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Pkgconf Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          Bash-5.3, Binutils-2.46.0-pass2, Coreutils-9.10, Gawk-5.4.0,
+          GCC-15.2.0-pass2, Glibc-2.43, Grep-3.12, Make-4.4.1, and sed-4.9
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.23.1. Installation of Pkgconf
+        </h2>
+        <p>
+          Prepare Pkgconf for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr \
+                        --disable-static \
+            --docdir=/usr/share/doc/pkgconf-2.5.1</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make install
+
+ln -sv pkgconf /usr/bin/pkg-config
+ln -sv pkgconf.1 /usr/share/man/man1/pkg-config.1</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.23.2. Contents of Pkgconf
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">PROGRAMS</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">LIBRARIES</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">DIRECTORIES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="wget.html" title="Wget-1.25.0">Prev</a>
+          <p>
+            Wget-1.25.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cleanup.html" title=
+          "Cleaning up and Saving the Temporary System">Next</a>
+          <p>
+            Cleaning up and Saving the Temporary System
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

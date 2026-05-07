@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      4.22.&nbsp;Wget-1.25.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-lfs-portage">
+    <div class="navheader">
+      <h4>
+        Portage Linux From Scratch - Version 1.0-lfs-portage
+      </h4>
+      <h3>
+        Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional
+        Temporary Tools
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="meson-temp.html" title=
+          "Meson-1.11.0">Prev</a>
+          <p>
+            Meson-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pkgconf.html" title="Pkgconf-2.5.1">Next</a>
+          <p>
+            Pkgconf-2.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="ch-tools-wget" name="ch-tools-wget"></a>4.22. Wget-1.25.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          The Wget package contains a utility useful for non-interactive
+          downloading of files from the Web.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://mirror.csclub.uwaterloo.ca/gnu/wget/wget-1.25.0.tar.gz">
+                https://mirror.csclub.uwaterloo.ca/gnu/wget/wget-1.25.0.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 5,140 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 33.3M
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: less than 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.22.1. Installation of Wget
+        </h2>
+        <p>
+          Prepare Wget for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --without-libpsl \
+            --without-libunistring-prefix \
+            --without-libgnutls-prefix \
+            --with-ssl=openssl \
+            --disable-dependency-tracking</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.22.2. Configuration of Wget
+        </h2>
+        <p>
+          Download the certification bundle, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir -pv /etc/ssl/certs
+wget --no-check-certificate -P /etc/ssl/certs https://curl.se/ca/cacert-2026-03-19.pem
+
+cat &gt; /etc/wgetrc &lt;&lt; "EOF"
+no-clobber = on
+ca-certificate = "/etc/ssl/certs/cacert-2026-03-19.pem"
+EOF</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.22.3. Contents of Wget
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">PROGRAMS</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">LIBRARIES</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">DIRECTORIES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="meson-temp.html" title=
+          "Meson-1.11.0">Prev</a>
+          <p>
+            Meson-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pkgconf.html" title="Pkgconf-2.5.1">Next</a>
+          <p>
+            Pkgconf-2.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

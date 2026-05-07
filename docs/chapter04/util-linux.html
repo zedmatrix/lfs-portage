@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      4.12.&nbsp;Util-linux-2.41.3
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-lfs-portage">
+    <div class="navheader">
+      <h4>
+        Portage Linux From Scratch - Version 1.0-lfs-portage
+      </h4>
+      <h3>
+        Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional
+        Temporary Tools
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="texinfo.html" title="Texinfo-7.3">Prev</a>
+          <p>
+            Texinfo-7.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="nano.html" title="Nano-9.0">Next</a>
+          <p>
+            Nano-9.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="ch-tools-util-linux" name="ch-tools-util-linux"></a>4.12.
+      Util-linux-2.41.3
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          The Util-linux package contains miscellaneous utility programs.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://www.kernel.org/pub/linux/utils/util-linux/v2.42/util-linux-2.42.tar.xz">
+                https://www.kernel.org/pub/linux/utils/util-linux/v2.42/util-linux-2.42.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                3452b260bbaa775d6e749ac3bb22111785003fc1f444970025c8da26dfa758e9
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 10,360 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 149.3M
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: less than 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.12.1. Installation of Util-linux
+        </h2>
+        <p>
+          Prepare Util-linux for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mkdir -pv /var/lib/hwclock
+./configure --libdir=/usr/lib --runstatedir=/run \
+            --disable-chfn-chsh --disable-login \
+            --disable-nologin --disable-su \
+            --disable-setpriv --disable-runuser \
+            --disable-pylibmount --disable-static \
+            --disable-liblastlog2 --without-python \
+            ADJTIME_PATH=/var/lib/hwclock/adjtime \
+            --docdir=/usr/share/doc/util-linux-2.41.3</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.12.2. Contents of Util-linux
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">PROGRAMS</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">LIBRARIES</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">DIRECTORIES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="texinfo.html" title="Texinfo-7.3">Prev</a>
+          <p>
+            Texinfo-7.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="nano.html" title="Nano-9.0">Next</a>
+          <p>
+            Nano-9.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

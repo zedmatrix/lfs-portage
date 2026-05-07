@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      4.9.&nbsp;Openssl-3.6.2
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-lfs-portage">
+    <div class="navheader">
+      <h4>
+        Portage Linux From Scratch - Version 1.0-lfs-portage
+      </h4>
+      <h3>
+        Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional
+        Temporary Tools
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="perl.html" title="Perl-5.42.0">Prev</a>
+          <p>
+            Perl-5.42.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="python-temp.html" title=
+          "Python-3.14.4">Next</a>
+          <p>
+            Python-3.14.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="ch-tools-openssl" name="ch-tools-openssl"></a>4.9. Openssl-3.6.2
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          The OpenSSL package contains management tools and libraries
+          relating to cryptography.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/openssl/openssl/releases/download/openssl-3.6.2/openssl-3.6.2.tar.gz">
+                https://github.com/openssl/openssl/releases/download/openssl-3.6.2/openssl-3.6.2.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                aaf51a1fe064384f811daeaeb4ec4dce7340ec8bd893027eee676af31e83a04f
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 53,627 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 876.6M
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 1.43 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Openssl Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          Binutils-2.46.0-pass2, Coreutils-9.10, GCC-15.2.0-pass2,
+          Make-4.4.1, and Perl-5.42.0
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.9.1. Installation of Openssl
+        </h2>
+        <p>
+          Prepare Openssl for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">./config --prefix=/usr \
+            --openssldir=/etc/ssl \
+            --libdir=lib shared zlib-dynamic</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">make MANSUFFIX=ssl install
+mv -v /usr/share/doc/openssl /usr/share/doc/openssl-3.6.2
+cp -vfr doc/* /usr/share/doc/openssl-3.6.2</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          4.9.2. Contents of Openssl
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">PROGRAMS</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">LIBRARIES</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">DIRECTORIES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="perl.html" title="Perl-5.42.0">Prev</a>
+          <p>
+            Perl-5.42.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="python-temp.html" title=
+          "Python-3.14.4">Next</a>
+          <p>
+            Python-3.14.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter04.html" title=
+          "Chapter&nbsp;4.&nbsp;Entering Chroot and Building Additional Temporary Tools">
+          Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

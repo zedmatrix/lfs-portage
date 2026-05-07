@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      3.17.&nbsp;Gcc-pass2-15.2.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-lfs-portage">
+    <div class="navheader">
+      <h4>
+        Portage Linux From Scratch - Version 1.0-lfs-portage
+      </h4>
+      <h3>
+        Chapter&nbsp;3.&nbsp;Cross Compiling Temporary Tools
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="binutils-pass2.html" title=
+          "Binutils-pass2-2.46.0">Prev</a>
+          <p>
+            Binutils-pass2-2.46.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../part4.html" title=
+          "Chroot and Finalize Toolchain">Next</a>
+          <p>
+            Chroot and Finalize Toolchain
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter03.html" title=
+          "Chapter&nbsp;3.&nbsp;Cross Compiling Temporary Tools">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="ch-tools-gcc-pass2" name="ch-tools-gcc-pass2"></a>3.17.
+      Gcc-pass2-15.2.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          The GCC package contains the GNU compiler collection, which
+          includes the C and C++ compilers.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://mirror.csclub.uwaterloo.ca/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz">
+                https://mirror.csclub.uwaterloo.ca/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 98,688 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 3.9G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 17.00 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          GCC-pass2 Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          Xz-5.8.3, GCC-15.2.0-pass1, Binutils-2.46.0-pass2, glibc-2.43, and
+          Linux-7.0-headers
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          3.17.1. Installation of GCC-pass2
+        </h2>
+        <p>
+          Prepare GCC-pass2 for compilation:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">tar -xf ../gmp-6.3.0.tar.xz &amp;&amp; mv -v gmp-6.3.0 gmp
+tar -xf ../mpc-1.4.0.tar.xz &amp;&amp; mv -v mpc-1.4.0 mpc
+tar -xf ../mpfr-4.2.2.tar.xz &amp;&amp; mv -v mpfr-4.2.2 mpfr
+
+case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
+  ;;
+esac
+sed '/thread_header =/s/@.*@/gthr-posix.h/' -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
+</kbd></pre>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir -v build
+cd build
+../configure --prefix=/usr \
+             --host=$LFS_TGT \
+             --target=$LFS_TGT \
+             --build=$(../config.guess) \
+             --with-build-sysroot=$LFS \
+             --enable-default-pie \
+             --enable-default-ssp \
+             --disable-nls \
+             --disable-multilib \
+             --disable-libatomic \
+             --disable-libgomp \
+             --disable-libquadmath \
+             --disable-libsanitizer \
+             --disable-libssp \
+             --disable-libvtv \
+             --enable-languages=c,c++ \
+             LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class="command">make DESTDIR=$LFS install
+ln -sv gcc $LFS/usr/bin/cc</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          3.17.2. Contents of GCC-pass2
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">PROGRAMS</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">LIBRARIES</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">DIRECTORIES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="binutils-pass2.html" title=
+          "Binutils-pass2-2.46.0">Prev</a>
+          <p>
+            Binutils-pass2-2.46.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../part4.html" title=
+          "Chroot and Finalize Toolchain">Next</a>
+          <p>
+            Chroot and Finalize Toolchain
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter03.html" title=
+          "Chapter&nbsp;3.&nbsp;Cross Compiling Temporary Tools">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Portage Linux From Scratch - Version 1.0-lfs-portage">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
